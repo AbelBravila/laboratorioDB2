@@ -3,6 +3,7 @@ import 'package:hello_world/models/Proveedor.dart';
 import 'package:hello_world/data/cliente_service.dart';
 import 'package:hello_world/screens/vw_clientes.dart'; // Vista
 import 'package:hello_world/screens/vw_proveedores.dart';
+import 'package:hello_world/screens/vw_producto.dart'; // Vista
 import 'package:flutter/material.dart';
 
 void main() {
@@ -122,15 +123,6 @@ class _MenuItem {
   _MenuItem(this.label, this.icon);
 }
 
-class productos extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text("Productos")),
-    backgroundColor: const Color.fromARGB(255, 95, 90, 90),
-    body: Center(child: Text("Prodcutos")),
-  );
-}
-
 class agregarProd extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -172,7 +164,7 @@ class cuentascobrar extends StatelessWidget {
 }
 
 final Map<String, Widget Function()> routeMap = {
-  "productos": () => productos(),
+  "productos": () => VwProducto(),
   "agregarproductos": () => agregarProd(),
   "clientes": () => clientes(),
   "proveedores": () => VwProveedores(),
