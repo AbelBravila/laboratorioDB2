@@ -4,6 +4,11 @@ import 'package:hello_world/data/cliente_service.dart';
 import 'package:hello_world/screens/vw_clientes.dart'; // Vista
 import 'package:hello_world/screens/vw_proveedores.dart';
 import 'package:hello_world/screens/vw_producto.dart'; // Vista
+import 'package:hello_world/screens/vw_cuentascobrar.dart'; // Vista
+import 'package:hello_world/screens/vw_cuentaspagar.dart';
+import 'package:hello_world/screens/AgregarProductoPage.dart'; // Vista
+import 'package:hello_world/screens/AgregarClientePage.dart'; // Vista
+import 'package:hello_world/screens/AgregarProveedorPage.dart'; // Vista
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,9 +32,9 @@ class StockInventarioPage extends StatelessWidget {
     _MenuItem("Productos", Icons.inventory_2_outlined),
     _MenuItem("Agregar productos", Icons.outbox),
     _MenuItem("Clientes", Icons.people),
+    _MenuItem("Agregar Clientes", Icons.add_circle_outline),
     _MenuItem("Proveedores", Icons.business),
-    _MenuItem("Ventas", Icons.monetization_on),
-    _MenuItem("Compras", Icons.shopping_cart),
+    _MenuItem("Agregar Proveedores", Icons.add_business),
     _MenuItem("Cuentas por Pagar", Icons.account_balance),
     _MenuItem("Cuentas por Cobrar", Icons.account_balance_wallet),
   ];
@@ -123,53 +128,13 @@ class _MenuItem {
   _MenuItem(this.label, this.icon);
 }
 
-class agregarProd extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text("Agrega Productos")),
-    body: Center(child: Text("Agrega Productos")),
-  );
-}
-
-class ventas extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text("Agrega Ventas")),
-    body: Center(child: Text("Agrega Ventas")),
-  );
-}
-
-class compras extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text("Agrega Compras")),
-    body: Center(child: Text("Agrega Compras")),
-  );
-}
-
-class cuentaspagar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text("Agrega Cuentas por Pagar")),
-    body: Center(child: Text("Agrega Cuentas por Pagar")),
-  );
-}
-
-class cuentascobrar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text("Agrega Cuentas por Cobrar")),
-    body: Center(child: Text("Agrega Cuentas por Cobrar")),
-  );
-}
-
 final Map<String, Widget Function()> routeMap = {
   "productos": () => VwProducto(),
-  "agregarproductos": () => agregarProd(),
+  "agregarproductos": () => AgregarProductoPage(),
   "clientes": () => clientes(),
+  "agregarclientes": () => AgregarClientePage(),
   "proveedores": () => VwProveedores(),
-  "ventas": () => ventas(),
-  "compras": () => compras(),
-  "cuentasporpagar": () => cuentaspagar(),
+  "agregarproveedores": () => AgregarProveedorPage(),
+  "cuentasporpagar": () => VwCuentaspagar(),
   "cuentasporcobrar": () => cuentascobrar(),
 };
